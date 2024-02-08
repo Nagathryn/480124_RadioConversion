@@ -1,0 +1,54 @@
+Issue controle volume encoder
+https://github.com/pschatzmann/ESP32-A2DP/discussions/459
+
+set_volume(get_volume()+inc) ; ou à décrémenter set_volume(get_volume()-inc) ;
+
+essayer le setvolume avec un bouton poussoir 
+Par exemple, pour utiliser le bouton d’augmentation du volume, 
+il suffit de faire quelque chose comme a2dp.setVolume(a2dp.getVolume()+const_offset) ; 
+où const_offset est une constante numérique qui définit de combien le volume doit augmenter
+ à chaque pression.
+
+fonction 
+play();
+pause();
+stop();
+next();
+previous();
+
+Conversion audio voiture en ble audio
+https://www.youtube.com/watch?v=goUFxiTSTvU
+
+
+code exemple 
+#include "BluetoothA2DPSink.h"
+
+BluetoothA2DPSink a2dp_sink;
+
+#define PIN_I2S_BCK   14
+#define PIN_I2S_WS    15
+#define PIN_I2S_DATA_OUT 27
+
+void setup() {
+ static const i2s_config_t i2s_config = {
+              .mode = (i2s_mode_t) (I2S_MODE_MASTER | I2S_MODE_TX ),
+              .sample_rate = 44100, // corrected by info from bluetooth
+              .bits_per_sample = (i2s_bits_per_sample_t) 16, /* the DAC module will only take the 8bits from MSB */
+              .channel_format = I2S_CHANNEL_FMT_RIGHT_LEFT,
+              .communication_format = I2S_COMM_FORMAT_I2S_MSB,
+              .intr_alloc_flags = 0, // default interrupt priority
+              .dma_buf_count = 8,
+              .dma_buf_len = 64,
+              .use_apll = false
+              };
+ static const i2s_pin_config_t pins = {.bck_io_num = 14,
+                                     .ws_io_num = 15,
+                                     .data_out_num = 27,
+                                     .data_in_num = I2S_PIN_NO_CHANGE};
+a2dp_sink.set_pin_config(pins);
+a2dp_sink.set_i2s_config(i2s_config);
+a2dp_sink.start("Supichaya");
+}
+
+void loop() {
+}
