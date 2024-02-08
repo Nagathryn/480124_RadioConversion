@@ -1,0 +1,9 @@
+SENSIBILITÉ EN DB ce nombre se situe entre 84 et 92 dB.
+Plus l’enceinte est sensible, moins il faut de puissance pour obtenir un son fort.
+
+ Vous feriez mieux d’avoir un ampli avec trop de puissance que trop peu.
+Les 50 watts indiqués signifient que l’ampli peut fournir 50 watts sans altérer 
+le son en provoquant une distorsion. Lorsque vous dépassez cette valeur, 
+vous rencontrerez le phénomène d’écrêtage (ou clipping en anglais)
+
+En règle générale, un ampli doit fournir 1,5 à 2 fois plus de puissance que la puissance RMS de votre enceinte.
