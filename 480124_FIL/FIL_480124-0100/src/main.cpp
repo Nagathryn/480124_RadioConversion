@@ -66,7 +66,7 @@ void setup()
 
   a2dp_sink.set_pin_config(my_pin_config);
   a2dp_sink.set_i2s_config(i2s_config);
-  a2dp_sink.start("LaFabrique_dev_2 ");
+  a2dp_sink.start("LaFabrique_dev_v2.1_2");
 
   pinMode(ENCODER_CLK, INPUT);
   pinMode(ENCODER_DT, INPUT);
